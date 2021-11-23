@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="#282828"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:layout_marginTop="10sp"
+                android:text="Hello"
+                android:id="@+id/dailyWeatherDateTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20sp"
+                android:textSize="20sp"
+                android:textColor="#219653"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="15sp"
+                android:autoSizeMinTextSize="8sp"/>
+
+            <ImageView
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="5sp"
+                android:layout_marginStart="40sp"
+                android:id="@+id/dailyWeatherImage"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:text="Hello"
+                android:id="@+id/dailyWeatherTextView"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20sp"
+                android:textSize="20sp"
+                android:layout_marginTop="10sp"
+                android:textColor="@color/white"
+                android:layout_marginBottom="5sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="15sp"
+                android:autoSizeMinTextSize="8sp"/>
+        </RelativeLayout>
+
+
+
+</RelativeLayout>
