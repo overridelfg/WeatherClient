@@ -1,7 +1,7 @@
 package com.example.weatherclient.data.response
 
 
-data class CurrentWeaherResponse(
+data class CurrentWeatherResponse(
     val coord: Coord,
     val weather: List<Weather>,
     val base: String,
