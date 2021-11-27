@@ -6,5 +6,6 @@ data class WeatherDetails(
     val currentDate: String,
     val cityName: String,
     val weatherInfo: String,
-    val weatherDescription: String
+    val weatherDescription: String,
+    val currentWeatherBackground: Int
 )
