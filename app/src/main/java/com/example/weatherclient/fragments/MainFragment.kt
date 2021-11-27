@@ -83,7 +83,9 @@ class MainFragment : Fragment() {
         weatherViewModel = ViewModelProvider(this).get(WeatherViewModel::class.java)
         weatherViewModel.currentWeatherStateFlowPublic.onEach {
             when (it) {
-                is UIStateCurrentWeather.Loading -> currentDate.text = "loading"
+                is UIStateCurrentWeather.Loading ->{
+                    Toast.makeText(thisContext, "Data is loading", Toast.LENGTH_LONG).show()
+                }
                 is UIStateCurrentWeather.Success -> {
                     currentDate.text = it.currentWeather.currentDate
                     cityNameTextView.text = it.currentWeather.cityName
@@ -91,7 +93,7 @@ class MainFragment : Fragment() {
                     weatherDescriptionTextView.text = it.currentWeather.weatherDescription
                     weatherStatus.setImageResource(it.currentWeather.currentWeatherBackground)
                 }
-                else -> Toast.makeText(thisContext, "exception", Toast.LENGTH_LONG).show()
+                is UIStateCurrentWeather.Error -> Toast.makeText(thisContext,it.e.message, Toast.LENGTH_LONG).show()
             }
         }.launchIn(lifecycleScope)
         weatherViewModel.hourlyWeatherStateFlowPublic.onEach {
@@ -105,7 +107,10 @@ class MainFragment : Fragment() {
                     }
                     adapter.notifyDataSetChanged()
                 }
-                else -> Toast.makeText(thisContext, "exception", Toast.LENGTH_LONG).show()
+                is UIStateHourlyWeather.Loading ->{
+                    Toast.makeText(thisContext, "Data is loading", Toast.LENGTH_LONG).show()
+                }
+                is UIStateHourlyWeather.Error -> Toast.makeText(thisContext,it.e.message, Toast.LENGTH_LONG).show()
             }
         }.launchIn(lifecycleScope)
 
@@ -120,7 +125,10 @@ class MainFragment : Fragment() {
                     }
                     adapterDaily.notifyDataSetChanged()
                 }
-                else -> Toast.makeText(thisContext, "exception", Toast.LENGTH_LONG).show()
+                is UIStateDailyWeather.Loading ->{
+                    Toast.makeText(thisContext, "Data is loading", Toast.LENGTH_LONG).show()
+                }
+                is UIStateDailyWeather.Error -> Toast.makeText(thisContext,it.e.message, Toast.LENGTH_LONG).show()
             }
         }.launchIn(lifecycleScope)
 

@@ -115,19 +115,19 @@ class WeatherViewModel : ViewModel() {
 
 sealed class UIStateCurrentWeather {
     object Loading : UIStateCurrentWeather()
-    class Error(e: Exception) : UIStateCurrentWeather()
+    class Error(val e: Exception) : UIStateCurrentWeather()
     class Success(val currentWeather: WeatherDetails) : UIStateCurrentWeather()
 }
 
 sealed class UIStateDailyWeather {
     object Loading : UIStateDailyWeather()
-    class Error(e: Exception) : UIStateDailyWeather()
+    class Error(val e: Exception) : UIStateDailyWeather()
     class Success(val dailyWeather: MutableList<DailyWeather>) : UIStateDailyWeather()
 }
 
 sealed class UIStateHourlyWeather {
     object Loading : UIStateHourlyWeather()
-    class Error(e: Exception) : UIStateHourlyWeather()
+    class Error(val e: Exception) : UIStateHourlyWeather()
     class Success(val hourlyWeather: MutableList<DailyWeather>) : UIStateHourlyWeather()
 }
 
